@@ -9,7 +9,7 @@
 /**
  * Components
  */
-import TimeSheet from "@/components/TimeSheet/TimeSheet.vue";
+import TimeSheet from "@/components/TimeSheet/TimeSheet";
 
 /**
  * Export
