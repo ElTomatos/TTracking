@@ -10,11 +10,21 @@
   </v-list>
 </template>
 
-<script>
+<script lang="ts">
+/**
+ * Vendors
+ */
+import { Component, Vue } from "vue-property-decorator";
+
 /**
  * Config
  */
 import { nav } from "../../config/nav";
+
+/**
+ * Typings
+ */
+import { INavItem } from "@/config/interfaces.d.ts";
 
 /**
  * Components
@@ -24,15 +34,11 @@ import NavigationItem from "./NavigationItem.vue";
 /**
  * Expo
  */
-export default {
-  name: "Navigation",
-  data() {
-    return {
-      nav
-    };
-  },
-  components: {
-    NavigationItem
-  }
-};
+@Component({
+  components: { NavigationItem }
+})
+class Navigation extends Vue {
+  nav: INavItem[] = nav;
+}
+export default Navigation;
 </script>
