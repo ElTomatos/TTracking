@@ -16,5 +16,10 @@ export const nav: INavItem[] = [
     link: "/timesheets",
     title: "Timesheets",
     icon: "clock-outline"
+  },
+  {
+    link: "categories",
+    title: "Categories",
+    icon: "list"
   }
 ];
