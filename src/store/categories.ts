@@ -10,7 +10,13 @@ interface ICategory {
   readonly id: number;
   readonly title: string;
   readonly added: Date;
+  readonly color: string;
 }
+
+/**
+ * DB
+ */
+import db from "@/db/helpers";
 
 /**
  * Store
@@ -22,7 +28,9 @@ import store from "@/store/index";
  */
 @Module({ namespaced: true, name: "categories", dynamic: true, store })
 class Categories extends VuexModule {
-  categories: ICategory[] = [{ id: 1, title: "Some cat", added: new Date() }];
+  categories: ICategory[] = [
+    { id: 1, title: "Some cat", added: new Date(), color: "#fff" }
+  ];
 
   @Mutation
   addCategoryMutation(category: ICategory): void {
@@ -41,6 +49,13 @@ class Categories extends VuexModule {
     this.context.commit("addCategoryMutation", category);
   }
 
+  @Action
+  async getCategories() {
+    const database = await db.getDb();
+    console.log(typeof database);
+  }
+
+  // Getters
   get categoriesCount() {
     return this.categories.length;
   }
